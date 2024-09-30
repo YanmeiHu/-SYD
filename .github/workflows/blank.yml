@@ -1,0 +1,36 @@
+import streamlit as st
+
+# 设置页面标题
+st.title("运动社群招募活动")
+
+# 简介
+st.write("欢迎加入我们的运动社群！我们定期举行各种运动活动，快来参与吧！")
+
+# 选择活动
+st.subheader("选择您想参加的活动")
+activities = ["跑步", "瑜伽", "篮球", "羽毛球", "骑行", "游泳"]
+activity = st.selectbox("请选择活动", activities)
+
+# 填写个人信息
+st.subheader("填写您的信息")
+name = st.text_input("请输入您的名字")
+email = st.text_input("请输入您的电子邮件")
+age = st.number_input("请输入您的年龄", min_value=10, max_value=100)
+
+# 确认报名
+if st.button("报名参加"):
+    if name and email and age:
+        st.success(f"感谢您的报名，{name}！您已成功报名参加 {activity} 活动！")
+        st.write("我们会通过电子邮件与您联系，提供更多活动信息。")
+    else:
+        st.error("请确保所有信息都已填写！")
+
+# 添加社群简介
+st.write("### 关于我们的社群")
+st.write("我们是一个致力于推广健康生活方式的运动社群，每周组织各种运动活动，欢迎不同年龄和水平的人加入。")
+
+# 联系方式
+st.write("### 联系我们")
+st.write("如有任何问题或建议，请通过以下方式联系我们：")
+st.write("邮箱：fitness_community@example.com")
+st.write("电话：123-456-7890")
